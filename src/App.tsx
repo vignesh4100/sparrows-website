@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import QuickInquiry from './components/QuickInquiry';
 import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
@@ -24,6 +25,7 @@ function App() {
       <Hero />
       <Projects />
       <WhyChooseUs />
+      <QuickInquiry />
       <Testimonials />
       <Footer />
       <FloatingActions onInquiryClick={() => setShowInquiryModal(true)} />
