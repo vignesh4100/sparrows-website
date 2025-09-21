@@ -171,7 +171,7 @@ service cloud.firestore {
             <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
               <div className="relative">
                 <img 
-                  src={project.bannerImage || project.images[0]} 
+                  src={project.images[0]} 
                   alt={project.name}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
