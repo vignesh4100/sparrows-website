@@ -64,9 +64,9 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-light text-gray-900 mb-6">
-              About <span className="font-normal">LandVest</span>
+              About <span className="font-normal text-red-600">LandVest</span>
             </h1>
-            <div className="w-24 h-px bg-gray-900 mx-auto mb-8"></div>
+            <div className="w-24 h-px bg-red-600 mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 leading-relaxed">
               For over a decade, we've been helping investors discover exceptional land investment opportunities 
               across South India. Our commitment to transparency, quality, and customer satisfaction has made us 
@@ -85,7 +85,7 @@ const About = () => {
               return (
                 <div key={index} className="text-center">
                   <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-gray-700" />
+                    <Icon className="w-8 h-8 text-red-600" />
                   </div>
                   <div className="text-3xl font-light text-gray-900 mb-2">{stat.number}</div>
                   <div className="text-sm text-gray-600">{stat.label}</div>
@@ -103,7 +103,7 @@ const About = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-4xl font-light text-gray-900 mb-6">Our Story</h2>
-                <div className="w-16 h-px bg-gray-900 mb-8"></div>
+                <div className="w-16 h-px bg-red-600 mb-8"></div>
                 <div className="space-y-6 text-gray-600 leading-relaxed">
                   <p>
                     Founded in 2012, LandVest began with a simple vision: to make quality land investments 
@@ -144,7 +144,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-light text-gray-900 mb-6">Our Values</h2>
-            <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
+            <div className="w-24 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               The principles that guide everything we do
             </p>
@@ -156,7 +156,7 @@ const About = () => {
               return (
                 <div key={index} className="text-center">
                   <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Icon className="w-8 h-8 text-gray-700" />
+                    <Icon className="w-8 h-8 text-red-600" />
                   </div>
                   <h3 className="text-xl font-medium text-gray-900 mb-4">{value.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
@@ -172,7 +172,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-light text-gray-900 mb-6">Our Team</h2>
-            <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
+            <div className="w-24 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Meet the experts behind your investment success
             </p>
