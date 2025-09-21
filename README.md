@@ -78,7 +78,6 @@ Then edit `.env` with your configuration:
    - Go to Settings → Upload → Upload presets
    - Click "Add upload preset"
    - Set preset name to `landvest_uploads`
-   - Set signing mode to "Unsigned"
    - Save the preset
 4. Update the `.env` file with your Cloudinary configuration:
    - Set `VITE_CLOUDINARY_CLOUD_NAME` to your actual cloud name

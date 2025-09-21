@@ -56,7 +56,7 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Why Choose <span className="text-red-600">LandVest</span>
+            Why Choose <span className="text-red-600">Sparrows Projects</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Your trusted partner in land investment with over a decade of experience in Tamil Nadu real estate

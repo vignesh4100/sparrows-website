@@ -36,7 +36,7 @@ const Testimonials = () => {
       location: "Madurai",
       rating: 5,
       text: "Professional team, transparent pricing, and excellent after-sales support. They made my first land investment experience smooth and stress-free.",
-      image: "https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+        Real stories from satisfied investors who trusted Sparrows Projects for their plot investments
       investment: "₹8L Investment"
     }
   ];

@@ -84,7 +84,7 @@ const About = () => {
               </span>
             </div>
             <h1 className="text-6xl font-bold mb-8 bg-gradient-to-r from-white to-red-100 bg-clip-text text-transparent">
-              About LandVest
+              About Sparrows Projects
             </h1>
             <p className="text-xl leading-relaxed text-red-100 mb-8">
               Your trusted partner in land investment with over a decade of experience 
@@ -143,7 +143,7 @@ const About = () => {
               <div>
                 <h3 className="text-2xl font-bold mb-4">Building Dreams Since 2012</h3>
                 <p className="text-gray-600 mb-6">
-                  LandVest was founded with a simple mission: to make land investment 
+                  Sparrows Projects was founded with a simple mission: to make land investment 
                   accessible, transparent, and profitable for everyone. Starting with 
                   our first project in Chennai, we have grown to become one of the 
                   most trusted names in South Indian real estate.

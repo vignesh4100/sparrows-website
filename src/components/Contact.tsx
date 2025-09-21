@@ -270,7 +270,7 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-red-600 mt-1" />
                     <div>
                       <p className="font-medium">LandVest Real Estate</p>
-                      <p className="text-gray-600">
+                      <p className="font-medium">Sparrows Projects</p>
                         Bharathi nagar<br />
                         Ramanathapuram - 623503<br />
                         Tamil Nadu, India
