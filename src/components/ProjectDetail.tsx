@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { MapPin, Phone, Mail, Download, Share2, Heart, Star, Calendar, Users, Home, Zap } from 'lucide-react';
+import { MapPin, Download, Calendar, Star, Zap } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import FloatingActions from './FloatingActions';
@@ -19,8 +18,7 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
-  const openImageModal = (index: number) => {
-    setSelectedImage(index);
+  const openImageModal = () => {
     setIsImageModalOpen(true);
   };
 
@@ -37,7 +35,6 @@ const ProjectDetail = () => {
     if (!project) return;
     setSelectedImage((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
-
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -91,7 +88,8 @@ const ProjectDetail = () => {
         <img
           src={project.images[selectedImage]}
           alt={project.name}
-          className="w-full h-full object-cover opacity-70"
+          className="w-full h-full object-cover opacity-70 cursor-pointer"
+          onClick={openImageModal} // ✅ Now clicking main image opens modal
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="absolute top-8 left-8 text-white">
@@ -114,9 +112,10 @@ const ProjectDetail = () => {
           {project.images.map((image, index) => (
             <button
               key={index}
-              onClick={() => openImageModal(index)}
-              className={`relative h-20 rounded-lg overflow-hidden ${selectedImage === index ? 'ring-2 ring-red-500' : ''
-                }`}
+              onClick={() => setSelectedImage(index)} // ✅ Only change main image
+              className={`relative h-20 rounded-lg overflow-hidden ${
+                selectedImage === index ? 'ring-2 ring-red-500' : ''
+              }`}
             >
               <img
                 src={image}
@@ -128,6 +127,7 @@ const ProjectDetail = () => {
         </div>
       </div>
 
+      {/* Project Details */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
@@ -300,6 +300,8 @@ const ProjectDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* Back Button */}
       <div className="flex justify-center mb-8">
         <button
           onClick={() => navigate(-1)}
@@ -308,6 +310,8 @@ const ProjectDetail = () => {
           ← Back
         </button>
       </div>
+
+      {/* Image Modal */}
       {isImageModalOpen && project && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center">
           <button
@@ -341,10 +345,7 @@ const ProjectDetail = () => {
 
       <Footer />
       <FloatingActions onInquiryClick={() => setShowInquiryModal(true)} />
-      <InquiryModal
-        isOpen={showInquiryModal}
-        onClose={() => setShowInquiryModal(false)}
-      />
+      <InquiryModal isOpen={showInquiryModal} onClose={() => setShowInquiryModal(false)} />
     </div>
   );
 };
