@@ -271,6 +271,7 @@ const Contact = () => {
                     <div>
                       <p className="font-medium">LandVest Real Estate</p>
                       <p className="font-medium">Sparrows Projects</p>
+                      <p className="text-gray-600">
                         Bharathi nagar<br />
                         Ramanathapuram - 623503<br />
                         Tamil Nadu, India
