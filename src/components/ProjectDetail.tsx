@@ -136,15 +136,142 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      {/* Rest of your code (Project Overview, Amenities, Sidebar, etc.) stays the same */}
+      {/* Project Overview */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
+                <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                  {project.description}
+                </p>
+
+                {/* Project Highlights */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Project Highlights</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {project.highlights.map((highlight, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <Star className="w-5 h-5 text-red-600" />
+                        <span className="text-gray-700">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Amenities */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Amenities</h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {project.amenities.map((amenity, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <Zap className="w-4 h-4 text-green-600" />
+                        <span className="text-gray-700">{amenity}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Nearby Places */}
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Nearby Places</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {project.nearbyPlaces.map((place, index) => (
+                      <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div className="flex items-center space-x-3">
+                          <MapPin className="w-4 h-4 text-red-600" />
+                          <div>
+                            <span className="font-medium text-gray-900">{place.name}</span>
+                            <span className="text-sm text-gray-500 ml-2">({place.type})</span>
+                          </div>
+                        </div>
+                        <span className="text-sm font-medium text-red-600">{place.distance}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Project Details</h3>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Price Range</h4>
+                    <p className="text-2xl font-bold text-red-600">{project.priceRange}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Plot Sizes</h4>
+                    <p className="text-lg text-gray-700">{project.plotSizes}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Status</h4>
+                    <span className={`inline-flex px-3 py-1 rounded-full text-sm font-semibold ${
+                      project.status === 'Available' ? 'bg-green-100 text-green-800' :
+                      project.status === 'New Launch' ? 'bg-blue-100 text-blue-800' :
+                      project.status === 'Few Left' ? 'bg-orange-100 text-orange-800' :
+                      'bg-red-100 text-red-800'
+                    }`}>
+                      {project.status}
+                    </span>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Availability</h4>
+                    <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <span>Plots Sold</span>
+                      <span>{project.soldPlots}/{project.totalPlots}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-red-600 h-2 rounded-full"
+                        style={{
+                          width: `${(project.soldPlots / project.totalPlots) * 100}%`
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-6 border-t">
+                    <button
+                      onClick={() => setShowInquiryModal(true)}
+                      className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors mb-4"
+                    >
+                      Enquire Now
+                    </button>
+                    
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center space-x-2">
+                        <Download className="w-4 h-4 text-gray-500" />
+                        <span className="text-gray-600">Download Brochure</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Calendar className="w-4 h-4 text-gray-500" />
+                        <span className="text-gray-600">Schedule Site Visit</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Back Button */}
       <div className="flex justify-center mb-8">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/projects')}
           className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg shadow transition duration-300"
         >
-          ← Back
+          ← Back to Projects
         </button>
       </div>
 
