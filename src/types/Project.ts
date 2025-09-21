@@ -8,6 +8,7 @@ export interface Project {
   totalPlots: number;
   soldPlots: number;
   description: string;
+  bannerImage: string;
   images: string[];
   highlights: string[];
   amenities: string[];
