@@ -60,15 +60,55 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
+      <section className="relative py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white rounded-full translate-x-40 -translate-y-40"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full -translate-x-40 translate-y-40"></div>
+          <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-white rounded-full"></div>
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-16 left-16 w-2 h-16 bg-white/20 rounded-full rotate-45 animate-pulse"></div>
+          <div className="absolute top-32 right-24 w-2 h-12 bg-white/15 rounded-full -rotate-45 animate-bounce"></div>
+          <div className="absolute bottom-24 left-1/4 w-1 h-8 bg-white/25 rounded-full rotate-12 animate-ping"></div>
+          <div className="absolute bottom-16 right-1/3 w-2 h-10 bg-white/10 rounded-full -rotate-12 animate-pulse"></div>
+        </div>
+
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">About LandVest</h1>
-            <p className="text-xl leading-relaxed">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="inline-block mb-6">
+              <span className="bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold border border-white/30">
+                Our Story
+              </span>
+            </div>
+            <h1 className="text-6xl font-bold mb-8 bg-gradient-to-r from-white to-red-100 bg-clip-text text-transparent">
+              About LandVest
+            </h1>
+            <p className="text-xl leading-relaxed text-red-100 mb-8">
               Your trusted partner in land investment with over a decade of experience 
               in Tamil Nadu real estate. We specialize in DTCP approved plots that 
               offer excellent returns and legal security.
             </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">12+</div>
+                <div className="text-red-200 text-sm">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">50+</div>
+                <div className="text-red-200 text-sm">Projects</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">2000+</div>
+                <div className="text-red-200 text-sm">Happy Customers</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">95%</div>
+                <div className="text-red-200 text-sm">Satisfaction</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

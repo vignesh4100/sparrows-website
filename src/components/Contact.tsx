@@ -59,14 +59,57 @@ const Contact = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
+      <section className="relative py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-white rounded-full -translate-y-36"></div>
+          <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-white rounded-full translate-y-36"></div>
+          <div className="absolute top-1/2 left-0 w-48 h-48 bg-white rounded-full -translate-x-24 -translate-y-24"></div>
+          <div className="absolute top-1/2 right-0 w-48 h-48 bg-white rounded-full translate-x-24 translate-y-24"></div>
+        </div>
+        
+        {/* Contact Icons Animation */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-8 h-8 border-2 border-white/20 rounded-full animate-spin"></div>
+          <div className="absolute top-40 right-32 w-6 h-6 border-2 border-white/15 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-32 left-1/3 w-4 h-4 border border-white/25 rounded-full animate-ping"></div>
+          <div className="absolute bottom-20 right-1/4 w-10 h-10 border-2 border-white/10 rounded-full animate-pulse"></div>
+        </div>
+
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="inline-block mb-6">
+              <span className="bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold border border-white/30">
+                Get In Touch
+              </span>
+            </div>
+            <h1 className="text-6xl font-bold mb-8 bg-gradient-to-r from-white to-red-100 bg-clip-text text-transparent">
+              Contact Us
+            </h1>
+            <p className="text-xl text-red-100 mb-8">
               Ready to start your investment journey? Get in touch with our experts 
               and discover the perfect plot for your needs.
             </p>
+            <div className="flex flex-wrap justify-center gap-8 mt-12">
+              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-sm">📞</span>
+                </div>
+                <span className="font-medium">Call Us</span>
+              </div>
+              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-sm">✉️</span>
+                </div>
+                <span className="font-medium">Email Us</span>
+              </div>
+              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-sm">📍</span>
+                </div>
+                <span className="font-medium">Visit Us</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
