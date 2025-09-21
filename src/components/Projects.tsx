@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { MapPin, ArrowRight, Clock, Plus } from 'lucide-react';
+import { MapPin, TrendingUp, Award, Clock } from 'lucide-react';
 import { projectService } from '../services/projectService';
 import { seedDatabase } from '../services/seedData';
 import { Project } from '../types/Project';
@@ -36,9 +36,10 @@ const Projects = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Available': return 'bg-emerald-500';
+      case 'Available': return 'bg-green-500';
       case 'New Launch': return 'bg-blue-500';
-      case 'Few Left': return 'bg-amber-500';
+      case 'Few Left': return 'bg-orange-500';
+      setShowSetupMessage(true);
       case 'Sold Out': return 'bg-red-500';
       default: return 'bg-gray-500';
     }
@@ -56,23 +57,37 @@ const Projects = () => {
       await seedBlogDatabase();
       
       console.log('Sample data added successfully!');
-      const fetchedProjects = await projectService.getAllProjects();
-      setProjects(fetchedProjects);
+      await fetchProjects();
     } catch (error) {
       console.error('Error adding sample data:', error);
       alert('Failed to add sample data. Please check your Firebase configuration and security rules.');
       setShowSetupMessage(true);
+    }
+  };
+
+  const handleAddSampleBlogs = async () => {
+    try {
+      setLoading(true);
+      console.log('Adding sample blogs...');
+      
+      const { seedBlogDatabase } = await import('../services/seedBlogData');
+      await seedBlogDatabase();
+      
+      console.log('Sample blogs added successfully!');
+      alert('Sample blogs added successfully! You can view them at /blogs');
+    } catch (error) {
+      console.error('Error adding sample blogs:', error);
+      alert('Failed to add sample blogs. Please check your Firebase configuration and security rules.');
     } finally {
       setLoading(false);
     }
   };
-
   if (loading) {
     return (
-      <section id="projects" className="py-24 bg-white">
+      <section id="projects" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading projects...</p>
           </div>
         </div>
@@ -82,12 +97,12 @@ const Projects = () => {
 
   if (showSetupMessage) {
     return (
-      <section className="py-24 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
             <div className="mb-6">
-              <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-amber-600" />
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-yellow-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Setup Required</h3>
               <p className="text-gray-600 mb-6">
@@ -95,14 +110,14 @@ const Projects = () => {
               </p>
             </div>
             
-            <div className="bg-gray-50 rounded-xl p-6 mb-6 text-left">
+            <div className="bg-gray-50 rounded-lg p-6 mb-6 text-left">
               <h4 className="font-semibold text-gray-900 mb-3">Firebase Setup Steps:</h4>
               <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
                 <li>Go to your Firebase Console</li>
                 <li>Navigate to Firestore Database → Rules</li>
                 <li>Replace the rules with:</li>
               </ol>
-              <pre className="bg-gray-900 text-green-400 p-4 rounded-lg mt-3 text-xs overflow-x-auto">
+              <pre className="bg-gray-800 text-green-400 p-4 rounded mt-3 text-xs overflow-x-auto">
 {`rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -116,13 +131,23 @@ service cloud.firestore {
               <p className="text-sm text-gray-600 mt-3">4. Click "Publish" to apply the changes</p>
             </div>
             
-            <button
-              onClick={handleAddSampleData}
-              className="bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors inline-flex items-center"
-            >
-              <Plus className="w-5 h-5 mr-2" />
-              Add Sample Data
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={handleAddSampleData}
+                className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
+              >
+                Add Sample Projects + Blogs
+              </button>
+              <button
+                onClick={handleAddSampleBlogs}
+                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Add Sample Blogs Only
+              </button>
+            </div>
+            <p className="text-sm text-gray-500 mt-3">
+              Click "Add Sample Blogs Only" to add just the 5 sample blogs, or "Add Sample Projects + Blogs" for both
+            </p>
           </div>
         </div>
       </section>
@@ -130,75 +155,88 @@ service cloud.firestore {
   }
 
   return (
-    <section id="projects" className="py-24 bg-white">
+    <section id="projects" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-light text-gray-900 mb-6">
-            Featured <span className="font-normal">Projects</span>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Current <span className="text-red-600">Projects</span>
           </h2>
-          <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover our carefully curated collection of premium land investments
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore our carefully selected DTCP and RERA approved plot projects across prime locations in South India
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="group bg-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
-              <div className="relative overflow-hidden">
+            <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+              <div className="relative">
                 <img 
-                  src={project.images[0]} 
+                  src={project.bannerImage || project.images[0]} 
                   alt={project.name}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className={`${getStatusColor(project.status)} text-white px-3 py-1 text-sm font-medium`}>
+                  <span className={`${getStatusColor(project.status)} text-white px-3 py-1 rounded-full text-sm font-medium`}>
                     {project.status}
                   </span>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-4 right-4">
+                  <div className="bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-sm">
+                    {project.soldPlots}/{project.totalPlots} Sold
+                  </div>
+                </div>
               </div>
 
-              <div className="p-8">
-                <h3 className="text-xl font-medium text-gray-900 mb-2">{project.name}</h3>
-                <div className="flex items-center text-gray-500 mb-6">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.name}</h3>
+                <div className="flex items-center text-gray-600 mb-4">
                   <MapPin className="w-4 h-4 mr-2" />
                   <span className="text-sm">{project.location}</span>
                 </div>
 
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between">
-                    <span className="text-sm text-gray-500">Price Range</span>
-                    <span className="text-sm font-medium text-gray-900">{project.priceRange}</span>
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <div className="text-sm text-gray-500">Price Range</div>
+                    <div className="font-semibold text-gray-900">{project.priceRange}</div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-sm text-gray-500">Plot Sizes</span>
-                    <span className="text-sm font-medium text-gray-900">{project.plotSizes}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-sm text-gray-500">Available</span>
-                    <span className="text-sm font-medium text-gray-900">
-                      {project.totalPlots - project.soldPlots} of {project.totalPlots}
-                    </span>
+                  <div>
+                    <div className="text-sm text-gray-500">Plot Sizes</div>
+                    <div className="font-semibold text-gray-900">{project.plotSizes}</div>
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="w-full bg-gray-100 rounded-full h-1">
+                <div className="mb-4">
+                  <div className="flex justify-between text-sm text-gray-600 mb-1">
+                    <span>Sales Progress</span>
+                    <span>{Math.round(getProgressPercentage(project.soldPlots, project.totalPlots))}%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-gray-900 h-1 rounded-full transition-all duration-300"
+                      className="bg-red-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${getProgressPercentage(project.soldPlots, project.totalPlots)}%` }}
                     ></div>
                   </div>
                 </div>
 
-                <Link 
-                  to={`/project/${project.id}`}
-                  className="inline-flex items-center text-gray-900 hover:text-gray-700 font-medium transition-colors group"
-                >
-                  View Details
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.highlights.slice(0, 3).map((feature, index) => (
+                    <span key={index} className="bg-red-50 text-red-700 px-2 py-1 rounded-lg text-xs">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-2">
+                  <Link 
+                    to={`/project/${project.id}`}
+                    className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors text-center"
+                  >
+                    View Details
+                  </Link>
+                  <button className="flex-1 border border-red-600 text-red-600 hover:bg-red-50 py-2 px-4 rounded-lg transition-colors">
+                    Quick Enquiry
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -504,7 +504,7 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
                         <div className="flex items-center">
                           <img
                             className="h-10 w-10 rounded-lg object-cover"
-                            src={project.images[0]}
+                            src={project.bannerImage || project.images[0]}
                             alt={project.name}
                           />
                           <div className="ml-4">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Play, TrendingUp, Award, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projectService } from '../services/projectService';
 import { Project } from '../types/Project';
 
@@ -29,7 +30,7 @@ const Hero = () => {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % projects.length);
-    }, 6000); // Change slide every 6 seconds
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [projects.length]);
@@ -55,20 +56,14 @@ const Hero = () => {
 
   if (loading || projects.length === 0) {
     return (
-      <section id="hero" className="relative overflow-hidden h-[80vh]">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-light mb-4">Premium Land Investments</h1>
-            <p className="text-xl text-gray-300">Discover exceptional opportunities</p>
-          </div>
-        </div>
+      <section id="hero" className="relative overflow-hidden h-screen">
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')] bg-cover bg-center"></div>
       </section>
     );
   }
 
   return (
-    <section id="hero" className="relative overflow-hidden h-[80vh] group">
+    <section id="hero" className="relative overflow-hidden h-screen">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {projects.map((project, index) => (
@@ -83,34 +78,33 @@ const Hero = () => {
               alt={project.name}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/20"></div>
           </div>
         ))}
       </div>
 
-      {/* Navigation Arrows - Only visible on hover */}
+      {/* Navigation Arrows */}
       <button
         onClick={goToPrevSlide}
-        className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-4 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={goToNextSlide}
-        className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-4 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-3">
+        <div className="flex space-x-2">
           {projects.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+              className={`w-4 h-4 rounded-full transition-colors ${
+                index === currentSlide ? 'bg-white' : 'bg-white/50'
               }`}
             />
           ))}
