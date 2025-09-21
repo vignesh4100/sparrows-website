@@ -134,9 +134,9 @@ service cloud.firestore {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-light text-gray-900 mb-6">
-            Featured <span className="font-normal">Projects</span>
+            Featured <span className="font-normal text-red-600">Projects</span>
           </h2>
-          <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
+          <div className="w-24 h-px bg-red-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover our carefully curated collection of premium land investments
           </p>
@@ -144,7 +144,7 @@ service cloud.firestore {
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project) => (
-            <div key={project.id} className="group bg-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
+            <div key={project.id} className="group bg-white border border-gray-100 hover:border-red-200 transition-all duration-300 hover:shadow-xl rounded-lg overflow-hidden">
               <div className="relative overflow-hidden">
                 <img 
                   src={project.images[0]} 
@@ -152,7 +152,7 @@ service cloud.firestore {
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className={`${getStatusColor(project.status)} text-white px-3 py-1 text-sm font-medium`}>
+                  <span className={`${getStatusColor(project.status)} text-white px-4 py-2 text-sm font-medium rounded-full shadow-lg`}>
                     {project.status}
                   </span>
                 </div>
@@ -160,16 +160,16 @@ service cloud.firestore {
               </div>
 
               <div className="p-8">
-                <h3 className="text-xl font-medium text-gray-900 mb-2">{project.name}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">{project.name}</h3>
                 <div className="flex items-center text-gray-500 mb-6">
-                  <MapPin className="w-4 h-4 mr-2" />
+                  <MapPin className="w-4 h-4 mr-2 text-red-500" />
                   <span className="text-sm">{project.location}</span>
                 </div>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-500">Price Range</span>
-                    <span className="text-sm font-medium text-gray-900">{project.priceRange}</span>
+                    <span className="text-sm font-semibold text-red-600">{project.priceRange}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-500">Plot Sizes</span>
@@ -184,9 +184,9 @@ service cloud.firestore {
                 </div>
 
                 <div className="mb-6">
-                  <div className="w-full bg-gray-100 rounded-full h-1">
+                  <div className="w-full bg-gray-100 rounded-full h-2">
                     <div 
-                      className="bg-gray-900 h-1 rounded-full transition-all duration-300"
+                      className="bg-gradient-to-r from-red-500 to-red-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${getProgressPercentage(project.soldPlots, project.totalPlots)}%` }}
                     ></div>
                   </div>
@@ -194,7 +194,7 @@ service cloud.firestore {
 
                 <Link 
                   to={`/project/${project.id}`}
-                  className="inline-flex items-center text-gray-900 hover:text-gray-700 font-medium transition-colors group"
+                  className="inline-flex items-center text-red-600 hover:text-red-700 font-semibold transition-colors group"
                 >
                   View Details
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

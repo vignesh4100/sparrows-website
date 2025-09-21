@@ -46,9 +46,9 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-light text-gray-900 mb-6">
-            What Our <span className="font-normal">Investors Say</span>
+            What Our <span className="font-normal text-red-600">Investors Say</span>
           </h2>
-          <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
+          <div className="w-24 h-px bg-red-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Real stories from satisfied investors who chose us for their land investments
           </p>
@@ -56,7 +56,7 @@ const Testimonials = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white p-8 border border-gray-100 hover:border-gray-200 transition-colors">
+            <div key={testimonial.id} className="bg-white p-8 border border-gray-100 hover:border-red-200 transition-colors rounded-lg shadow-sm hover:shadow-md">
               
               <div className="flex items-center mb-6">
                 <img 
@@ -73,7 +73,7 @@ const Testimonials = () => {
               <p className="text-gray-600 mb-6 leading-relaxed">"{testimonial.text}"</p>
               
               <div className="text-sm text-gray-500">
-                {testimonial.investment}
+                <span className="text-red-600 font-semibold">{testimonial.investment}</span>
               </div>
             </div>
           ))}
