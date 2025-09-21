@@ -86,9 +86,9 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-light text-gray-900 mb-6">
-              Get in <span className="font-normal">Touch</span>
+              Get in <span className="font-normal text-red-600">Touch</span>
             </h1>
-            <div className="w-24 h-px bg-gray-900 mx-auto mb-8"></div>
+            <div className="w-24 h-px bg-red-600 mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 leading-relaxed">
               Ready to start your investment journey? We're here to help you every step of the way. 
               Reach out to our experts for personalized guidance and support.
@@ -106,7 +106,7 @@ const Contact = () => {
               return (
                 <div key={index} className="text-center p-6 border border-gray-100 hover:border-gray-200 transition-colors">
                   <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Icon className="w-8 h-8 text-gray-700" />
+                    <Icon className="w-8 h-8 text-red-600" />
                   </div>
                   <h3 className="text-lg font-medium text-gray-900 mb-4">{info.title}</h3>
                   <div className="space-y-1">
@@ -129,7 +129,7 @@ const Contact = () => {
               {/* Contact Form */}
               <div>
                 <h2 className="text-3xl font-light text-gray-900 mb-6">Send us a Message</h2>
-                <div className="w-16 h-px bg-gray-900 mb-8"></div>
+                <div className="w-16 h-px bg-red-600 mb-8"></div>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -143,7 +143,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -157,7 +157,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
                         placeholder="Enter your email"
                       />
                     </div>
@@ -174,7 +174,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
                         placeholder="Enter your phone number"
                       />
                     </div>
@@ -186,7 +186,7 @@ const Contact = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
                       >
                         <option value="">Select Subject</option>
                         <option value="investment-inquiry">Investment Inquiry</option>
@@ -208,14 +208,14 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors resize-none rounded-lg"
                       placeholder="Tell us about your requirements..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="bg-gray-900 text-white px-8 py-3 hover:bg-gray-800 transition-colors inline-flex items-center"
+                    className="bg-red-600 text-white px-8 py-3 hover:bg-red-700 transition-colors inline-flex items-center rounded-lg font-semibold shadow-lg hover:shadow-xl"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     Send Message
@@ -227,7 +227,7 @@ const Contact = () => {
               <div className="space-y-8">
                 <div>
                   <h3 className="text-2xl font-light text-gray-900 mb-6">Find Us</h3>
-                  <div className="w-16 h-px bg-gray-900 mb-6"></div>
+                  <div className="w-16 h-px bg-red-600 mb-6"></div>
                   <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
                     <p className="text-gray-600">Interactive Map Coming Soon</p>
                   </div>
@@ -235,7 +235,7 @@ const Contact = () => {
 
                 <div>
                   <h3 className="text-2xl font-light text-gray-900 mb-6">Quick Actions</h3>
-                  <div className="w-16 h-px bg-gray-900 mb-6"></div>
+                  <div className="w-16 h-px bg-red-600 mb-6"></div>
                   <div className="space-y-4">
                     <a
                       href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`}
@@ -282,7 +282,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-light text-gray-900 mb-6">Our Offices</h2>
-            <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
+            <div className="w-24 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Visit us at any of our convenient locations across South India
             </p>
