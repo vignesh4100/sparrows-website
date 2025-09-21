@@ -74,7 +74,7 @@ const Hero = () => {
             }`}
           >
             <img
-              src={project.images[0]}
+              src={project.bannerImage[0]}
               alt={project.name}
               className="w-full h-full object-cover object-center"
             />
