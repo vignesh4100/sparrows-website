@@ -89,7 +89,7 @@ const ProjectDetail = () => {
       {/* Hero Section */}
       <div className="relative h-[500px] bg-black overflow-hidden">
         <img
-          src={project.images[selectedImage]}
+          src={project.bannerImage || project.images[selectedImage]}
           alt={project.name}
           className="w-full h-full object-cover opacity-70"
         />
