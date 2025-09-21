@@ -11,6 +11,7 @@ const sampleProjects: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>[] = [
     totalPlots: 120,
     soldPlots: 45,
     description: "Green Valley Plots is a premium gated community featuring DTCP approved residential plots in the heart of Sarjapur. Located just 15 minutes from Electronic City, this project offers the perfect blend of urban convenience and peaceful living.",
+    bannerImage: "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
     images: [
       "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       "https://images.pexels.com/photos/1031584/pexels-photo-1031584.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
@@ -57,6 +58,7 @@ const sampleProjects: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>[] = [
     totalPlots: 200,
     soldPlots: 12,
     description: "Sunrise Residency offers premium residential plots in the rapidly developing area of Tambaram. With excellent connectivity to Chennai city center and upcoming metro connectivity, this project promises high returns on investment.",
+    bannerImage: "https://images.pexels.com/photos/1031584/pexels-photo-1031584.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
     images: [
       "https://images.pexels.com/photos/1031584/pexels-photo-1031584.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
@@ -100,6 +102,7 @@ const sampleProjects: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>[] = [
     totalPlots: 80,
     soldPlots: 68,
     description: "Metro Park Plots is strategically located in Coimbatore with excellent connectivity to major IT parks and educational institutions. This DTCP approved layout offers affordable plots with modern amenities.",
+    bannerImage: "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
     images: [
       "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
@@ -142,6 +145,7 @@ const sampleProjects: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>[] = [
     totalPlots: 150,
     soldPlots: 87,
     description: "Tech City Plots is located in the heart of Electronic City, Bangalore's premier IT destination. This premium project offers larger plots perfect for building luxury homes in a tech-savvy environment.",
+    bannerImage: "https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
     images: [
       "https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",

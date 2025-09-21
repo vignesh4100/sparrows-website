@@ -42,10 +42,10 @@ const Header = () => {
 
           <nav className="hidden md:flex space-x-8">
             <button onClick={() => handleNavigation('hero')} className="text-gray-700 hover:text-red-600 transition-colors">Home</button>
-            <button onClick={() => handleNavigation('projects')} className="text-gray-700 hover:text-red-600 transition-colors">Projects</button>
+            <button onClick={() => navigate('/projects')} className="text-gray-700 hover:text-red-600 transition-colors">Projects</button>
+            <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors">About</button>
             <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors">Blogs</button>
-            <button onClick={() => handleNavigation('about')} className="text-gray-700 hover:text-red-600 transition-colors">About</button>
-            <button onClick={() => handleNavigation('footer')} className="text-gray-700 hover:text-red-600 transition-colors">Contact</button>
+            <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors">Contact</button>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -70,10 +70,10 @@ const Header = () => {
           <div className="md:hidden py-4 border-t">
             <nav className="flex flex-col space-y-4">
               <button onClick={() => handleNavigation('hero')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Home</button>
-              <button onClick={() => handleNavigation('projects')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Projects</button>
+              <button onClick={() => navigate('/projects')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Projects</button>
+              <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors text-left">About</button>
               <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Blogs</button>
-              <button onClick={() => handleNavigation('about')} className="text-gray-700 hover:text-red-600 transition-colors text-left">About</button>
-              <button onClick={() => handleNavigation('footer')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Contact</button>
+              <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Contact</button>
               <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors self-start">
                 Enquire Now
               </button>

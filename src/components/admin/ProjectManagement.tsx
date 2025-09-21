@@ -25,6 +25,7 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
     status: 'Available',
     totalPlots: 0,
     soldPlots: 0,
+    bannerImage: '',
     images: [] as string[],
     description: '',
     highlights: [] as string[],
@@ -67,6 +68,7 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
       status: formData.status as Project['status'],
       totalPlots: Number(formData.totalPlots),
       soldPlots: Number(formData.soldPlots),
+      bannerImage: formData.bannerImage,
       images: formData.images,
       description: formData.description,
       highlights: formData.highlights,
@@ -79,6 +81,12 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
 
   const saveProject = async (projectData: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>) => {
     try {
+      // Validate required fields
+      if (!projectData.bannerImage) {
+        alert('Please upload a banner image');
+        return;
+      }
+      
       if (editingProject) {
         const success = await projectService.updateProject(editingProject.id, projectData);
         if (success) {
@@ -116,6 +124,7 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
       status: project.status,
       totalPlots: project.totalPlots,
       soldPlots: project.soldPlots,
+      bannerImage: project.bannerImage,
       images: project.images,
       description: project.description,
       highlights: project.highlights,
@@ -151,6 +160,7 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
       status: 'Available',
       totalPlots: 0,
       soldPlots: 0,
+      bannerImage: '',
       images: [],
       description: '',
       highlights: [],
@@ -300,6 +310,87 @@ const ProjectManagement: React.FC<ProjectManagementProps> = ({ onLogout }) => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   placeholder="Enter sold plots"
                 />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Banner Image *
+                </label>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Upload a banner image for the project</span>
+                    <div className="relative">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            try {
+                              const formData = new FormData();
+                              formData.append('file', file);
+                              formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+                              formData.append('cloud_name', import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+
+                              const response = await fetch(
+                                `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+                                {
+                                  method: 'POST',
+                                  body: formData,
+                                }
+                              );
+
+                              if (response.ok) {
+                                const data = await response.json();
+                                setFormData(prev => ({...prev, bannerImage: data.secure_url}));
+                              } else {
+                                alert('Failed to upload banner image');
+                              }
+                            } catch (error) {
+                              console.error('Upload error:', error);
+                              alert('Failed to upload banner image');
+                            }
+                          }
+                        }}
+                        className="hidden"
+                        id="banner-upload"
+                      />
+                      <label
+                        htmlFor="banner-upload"
+                        className="cursor-pointer inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                      >
+                        Upload Banner
+                      </label>
+                    </div>
+                  </div>
+
+                  {formData.bannerImage && (
+                    <div className="relative">
+                      <img
+                        src={formData.bannerImage}
+                        alt="Banner preview"
+                        className="w-full h-48 object-cover rounded-lg border border-gray-200"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({...prev, bannerImage: ''}))}
+                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
+
+                  {!formData.bannerImage && (
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                      <div className="w-12 h-12 text-gray-400 mx-auto mb-4">
+                        📷
+                      </div>
+                      <p className="text-gray-500">No banner image uploaded yet</p>
+                      <p className="text-sm text-gray-400">Upload a banner image to preview it here</p>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="md:col-span-2">

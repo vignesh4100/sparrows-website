@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer id="footer" className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <div className="mb-6">
@@ -36,27 +36,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Pages</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Current Projects</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Investment Guide</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Customer Reviews</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Plot Investment</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Legal Documentation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Site Visits</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Investment Consultation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Loan Assistance</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">After Sales Support</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
+              <li><a href="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+              <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+              <li><a href="/blogs" className="text-gray-400 hover:text-white transition-colors">Blogs</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 
