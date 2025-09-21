@@ -186,29 +186,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12">Our Team</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {team.map((member, index) => (
-                <div key={index} className="text-center">
-                  <img 
-                    src={member.image}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                  />
-                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-red-600 font-medium mb-2">{member.position}</p>
-                  <p className="text-gray-600">{member.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Mission Statement */}
       <section className="py-16 bg-red-600 text-white">
         <div className="container mx-auto px-4">
