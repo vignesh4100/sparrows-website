@@ -284,39 +284,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Offices</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {offices.map((office, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold mb-4 text-red-600">{office.city}</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start space-x-3">
-                      <MapPin className="w-4 h-4 text-gray-500 mt-1" />
-                      <p className="text-gray-600 text-sm">{office.address}</p>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Phone className="w-4 h-4 text-gray-500" />
-                      <a href={`tel:${office.phone}`} className="text-gray-600 text-sm hover:text-red-600">
-                        {office.phone}
-                      </a>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Mail className="w-4 h-4 text-gray-500" />
-                      <a href={`mailto:${office.email}`} className="text-gray-600 text-sm hover:text-red-600">
-                        {office.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Map Section */}
       <section className="py-16">
