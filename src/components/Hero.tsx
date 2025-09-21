@@ -68,7 +68,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="relative overflow-hidden h-screen group">
+    <section id="hero" className="relative overflow-hidden h-[80vh] group">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {projects.map((project, index) => (
@@ -91,13 +91,13 @@ const Hero = () => {
       {/* Navigation Arrows - Only visible on hover */}
       <button
         onClick={goToPrevSlide}
-        className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 bg-red-600/80 backdrop-blur-sm hover:bg-red-600 text-white p-4 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg"
+        className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-4 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={goToNextSlide}
-        className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 bg-red-600/80 backdrop-blur-sm hover:bg-red-600 text-white p-4 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg"
+        className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-4 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -109,8 +109,8 @@ const Hero = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-red-600 scale-125 shadow-lg' : 'bg-white/60 hover:bg-red-400'
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
               }`}
             />
           ))}
@@ -120,7 +120,7 @@ const Hero = () => {
       {/* Click overlay for navigation */}
       <div
         onClick={handleProjectClick}
-        className="absolute inset-0 cursor-pointer z-10 hover:bg-black/5 transition-colors duration-300"
+        className="absolute inset-0 cursor-pointer z-10"
         title="Click to view project details"
       />
     </section>

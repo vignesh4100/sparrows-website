@@ -41,19 +41,19 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex space-x-8">
-            <button onClick={() => handleNavigation('hero')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">Home</button>
-            <button onClick={() => handleNavigation('projects')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">Projects</button>
-            <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">About</button>
-            <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">Blogs</button>
-            <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">Contact</button>
+            <button onClick={() => handleNavigation('hero')} className="text-gray-700 hover:text-red-600 transition-colors">Home</button>
+            <button onClick={() => handleNavigation('projects')} className="text-gray-700 hover:text-red-600 transition-colors">Projects</button>
+            <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors">About</button>
+            <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors">Blogs</button>
+            <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors">Contact</button>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-gray-700">
-              <Phone className="w-4 h-4 text-red-600" />
+              <Phone className="w-4 h-4" />
               <span className="text-sm">{import.meta.env.VITE_CONTACT_PHONE}</span>
             </div>
-            <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
+            <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
               Enquire Now
             </button>
           </div>
@@ -69,12 +69,12 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => handleNavigation('hero')} className="text-gray-700 hover:text-red-600 transition-colors text-left font-medium">Home</button>
-              <button onClick={() => handleNavigation('projects')} className="text-gray-700 hover:text-red-600 transition-colors text-left font-medium">Projects</button>
-              <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors text-left font-medium">About</button>
-              <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors text-left font-medium">Blogs</button>
-              <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors text-left font-medium">Contact</button>
-              <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors self-start font-semibold shadow-lg">
+              <button onClick={() => handleNavigation('hero')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Home</button>
+              <button onClick={() => handleNavigation('projects')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Projects</button>
+              <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors text-left">About</button>
+              <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Blogs</button>
+              <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Contact</button>
+              <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors self-start">
                 Enquire Now
               </button>
             </nav>

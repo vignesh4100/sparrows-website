@@ -41,9 +41,9 @@ const QuickInquiry = () => {
             {/* Left Content */}
             <div className="text-white">
               <h2 className="text-4xl font-light mb-6">
-                Ready to <span className="font-normal text-red-400">Invest?</span>
+                Ready to <span className="font-normal">Invest?</span>
               </h2>
-              <div className="w-16 h-px bg-red-400 mb-8"></div>
+              <div className="w-16 h-px bg-white mb-8"></div>
               <p className="text-lg text-gray-300 mb-12 leading-relaxed">
                 Get in touch with our investment experts to discover the perfect opportunity 
                 for your portfolio. We're here to guide you through every step of your investment journey.
@@ -51,7 +51,7 @@ const QuickInquiry = () => {
               
               <div className="space-y-8">
                 <div className="flex items-center space-x-6">
-                  <div className="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
@@ -61,7 +61,7 @@ const QuickInquiry = () => {
                 </div>
                 
                 <div className="flex items-center space-x-6">
-                  <div className="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
@@ -71,7 +71,7 @@ const QuickInquiry = () => {
                 </div>
                 
                 <div className="flex items-center space-x-6">
-                  <div className="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -85,7 +85,7 @@ const QuickInquiry = () => {
             {/* Right Form */}
             <div className="bg-white rounded-2xl p-8">
               <h3 className="text-2xl font-light text-gray-900 mb-6">Quick Enquiry</h3>
-              <div className="w-16 h-px bg-red-600 mb-8"></div>
+              <div className="w-16 h-px bg-gray-900 mb-8"></div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -95,7 +95,7 @@ const QuickInquiry = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
+                    className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
                     placeholder="Enter your full name"
                     required
                   />
@@ -108,7 +108,7 @@ const QuickInquiry = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
+                    className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
                     placeholder="Enter your number"
                     required
                   />
@@ -121,7 +121,7 @@ const QuickInquiry = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
+                    className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -133,7 +133,7 @@ const QuickInquiry = () => {
                       name="location"
                       value={formData.location}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
+                      className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
                     >
                       <option value="">Select Location</option>
                       <option value="Chennai">Chennai</option>
@@ -150,7 +150,7 @@ const QuickInquiry = () => {
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors rounded-lg"
+                      className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
                     >
                       <option value="">Select Budget</option>
                       <option value="5-10L">₹5L - ₹10L</option>
@@ -168,14 +168,14 @@ const QuickInquiry = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-200 focus:border-red-500 focus:outline-none transition-colors resize-none rounded-lg"
+                    className="w-full px-4 py-3 border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors resize-none"
                     placeholder="Tell us about your requirements..."
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-red-600 text-white py-3 hover:bg-red-700 transition-colors flex items-center justify-center rounded-lg font-semibold shadow-lg hover:shadow-xl"
+                  className="w-full bg-gray-900 text-white py-3 hover:bg-gray-800 transition-colors flex items-center justify-center"
                 >
                   <Send className="w-5 h-5 mr-2" />
                   Submit Enquiry
