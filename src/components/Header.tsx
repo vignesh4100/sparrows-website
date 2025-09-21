@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Menu, X, MapPin, Phone } from 'lucide-react';
 
 const Header = () => {
@@ -53,9 +53,9 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span className="text-sm">{import.meta.env.VITE_CONTACT_PHONE}</span>
             </div>
-            <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
+            <Link to="/contact" className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
               Enquire Now
-            </button>
+            </Link>
           </div>
 
           <button 
@@ -74,9 +74,9 @@ const Header = () => {
               <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-red-600 transition-colors text-left">About</button>
               <button onClick={() => navigate('/blogs')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Blogs</button>
               <button onClick={() => navigate('/contact')} className="text-gray-700 hover:text-red-600 transition-colors text-left">Contact</button>
-              <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors self-start">
+              <Link to="/contact" className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors self-start">
                 Enquire Now
-              </button>
+              </Link>
             </nav>
           </div>
         )}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Shield, TrendingUp, FileText, Clock, Users, CheckCircle, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Features = () => {
   const features = [
@@ -95,12 +96,12 @@ const Features = () => {
               <div className="bg-red-600 text-white rounded-2xl p-8">
                 <Star className="w-12 h-12 mx-auto mb-4" />
                 <h4 className="text-2xl font-bold mb-2">Premium Service</h4>
-                <p className="text-red-100 mb-4">
+                <p className="text-red-100 mb-6">
                   Experience our premium service with dedicated support throughout your investment journey
                 </p>
-                <button className="bg-white text-red-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors">
+                <Link to="/contact" className="bg-white text-red-600 hover:bg-gray-100 px-6 py-3 mt-4 rounded-lg font-semibold transition-colors">
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           </div>

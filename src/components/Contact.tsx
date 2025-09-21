@@ -57,7 +57,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white overflow-hidden">
         {/* Background Pattern */}
@@ -67,7 +67,7 @@ const Contact = () => {
           <div className="absolute top-1/2 left-0 w-48 h-48 bg-white rounded-full -translate-x-24 -translate-y-24"></div>
           <div className="absolute top-1/2 right-0 w-48 h-48 bg-white rounded-full translate-x-24 translate-y-24"></div>
         </div>
-        
+
         {/* Contact Icons Animation */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-8 h-8 border-2 border-white/20 rounded-full animate-spin"></div>
@@ -87,7 +87,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-xl text-red-100 mb-8">
-              Ready to start your investment journey? Get in touch with our experts 
+              Ready to start your investment journey? Get in touch with our experts
               and discover the perfect plot for your needs.
             </p>
             <div className="flex flex-wrap justify-center gap-8 mt-12">
@@ -153,7 +153,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
@@ -168,7 +168,7 @@ const Contact = () => {
                       placeholder="your@email.com"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Subject
@@ -187,7 +187,7 @@ const Contact = () => {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
@@ -202,7 +202,7 @@ const Contact = () => {
                       placeholder="Tell us about your requirements..."
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center"
@@ -216,7 +216,7 @@ const Contact = () => {
               {/* Contact Information */}
               <div>
                 <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-                
+
                 {/* Quick Contact */}
                 <div className="bg-gray-50 rounded-2xl p-6 mb-8">
                   <h3 className="text-xl font-bold mb-4">Quick Contact</h3>
@@ -243,7 +243,7 @@ const Contact = () => {
                       <MessageCircle className="w-5 h-5 text-red-600" />
                       <div>
                         <p className="font-medium">WhatsApp</p>
-                        <a 
+                        <a
                           href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -286,20 +286,27 @@ const Contact = () => {
 
 
       {/* Map Section */}
+      {/* Map Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">Find Us</h2>
-            <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600">Interactive map will be integrated here</p>
-                <p className="text-sm text-gray-500">Google Maps integration coming soon</p>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <iframe
+                title="Sparrow Projects Real Estate Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.682875037477!2d79.0025!3d9.3745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b01d1f233bc6a3f%3A0xf91d1e2f1c2b4bdb!2sBharathi%20Nagar%2C%20Ramanathapuram%2C%20Tamil%20Nadu%20623503!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
       </section>
+
 
       <Footer />
     </div>
