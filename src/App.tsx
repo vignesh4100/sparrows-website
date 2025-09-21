@@ -15,6 +15,7 @@ import Blogs from './components/Blogs';
 import BlogDetail from './components/BlogDetail';
 import About from './components/About';
 import Contact from './components/Contact';
+import ProjectsPage from './components/ProjectsPage';
 import Features from './components/Features';
 import Stats from './components/Stats';
 import { projectService } from './services/projectService';
@@ -45,6 +46,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
