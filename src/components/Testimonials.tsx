@@ -85,32 +85,6 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Join Our Success Stories</h3>
-            <p className="text-gray-600 mb-6">
-              Be part of our growing community of successful land investors across South India
-            </p>
-            <div className="grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-red-600 mb-2">98%</div>
-                <div className="text-gray-600">Customer Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-red-600 mb-2">2000+</div>
-                <div className="text-gray-600">Happy Investors</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-red-600 mb-2">₹500Cr+</div>
-                <div className="text-gray-600">Investments Facilitated</div>
-              </div>
-            </div>
-            <button className="mt-6 bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-              Start Your Investment Journey
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
