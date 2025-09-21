@@ -104,7 +104,7 @@ const Hero = () => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-4 h-4 rounded-full transition-colors ${
-            src={project.bannerImage}
+                index === currentSlide ? 'bg-red-600' : 'bg-white/50'
               }`}
             />
           ))}
