@@ -24,9 +24,9 @@ function App() {
       <Header />
       <Hero />
       <Projects />
-      <WhyChooseUs />
-      <QuickInquiry />
       <Testimonials />
+      <QuickInquiry />
+   
       <Footer />
       <FloatingActions onInquiryClick={() => setShowInquiryModal(true)} />
       <InquiryModal 
