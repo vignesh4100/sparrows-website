@@ -9,6 +9,8 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
+import About from './components/About';
+import Contact from './components/Contact';
 import AdminPanel from './components/admin/AdminPanel';
 import FloatingActions from './components/FloatingActions';
 import InquiryModal from './components/InquiryModal';
@@ -26,7 +28,6 @@ function App() {
       <Projects />
       <Testimonials />
       <QuickInquiry />
-   
       <Footer />
       <FloatingActions onInquiryClick={() => setShowInquiryModal(true)} />
       <InquiryModal 
@@ -42,6 +43,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/blogs" element={<><Header /><Blogs /><Footer /></>} />
           <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/admin/*" element={<AdminPanel />} />

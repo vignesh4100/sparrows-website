@@ -42,44 +42,37 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            What Our <span className="text-red-600">Investors Say</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-light text-gray-900 mb-6">
+            What Our <span className="font-normal">Investors Say</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real stories from satisfied investors who trusted LandVest for their plot investments
+          <div className="w-24 h-px bg-gray-900 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Real stories from satisfied investors who chose us for their land investments
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-2xl shadow-lg p-8 relative hover:shadow-xl transition-shadow">
-              <div className="absolute -top-4 -left-4 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-                <Quote className="w-4 h-4 text-white" />
-              </div>
+            <div key={testimonial.id} className="bg-white p-8 border border-gray-100 hover:border-gray-200 transition-colors">
               
               <div className="flex items-center mb-6">
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
+                  className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                  <h4 className="font-medium text-gray-900">{testimonial.name}</h4>
                   <p className="text-gray-600 text-sm">{testimonial.location}</p>
-                  <div className="flex items-center mt-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
                 </div>
               </div>
 
-              <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+              <p className="text-gray-600 mb-6 leading-relaxed">"{testimonial.text}"</p>
               
-              <div className="bg-red-50 text-red-700 px-4 py-2 rounded-lg text-sm font-medium inline-block">
+              <div className="text-sm text-gray-500">
                 {testimonial.investment}
               </div>
             </div>
